@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Conceptos básicos de Regresión Logística</h2>
+<p>
+  La <strong>Regresión Logística</strong> se utiliza para predecir resultados binarios como 
+  <em>sí/no</em>, <em>verdadero/falso</em> o <em>compra/no compra</em>.
+</p>
+
+<h4>En este proyecto:</h4>
+<ul>
+  <li><strong>Variable objetivo:</strong> ¿Compra el usuario? (1 = Sí, 0 = No)</li>
+  <li><strong>Variables predictoras:</strong>
+    <ul>
+      <li>Tiempo en el sitio web</li>
+      <li>Número de clics en productos</li>
+      <li>Fuente de tráfico (orgánico, publicidad, redes sociales, email)</li>
+      <li>Nivel de ingresos (bajo, medio, alto)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Interpretación:</h4>
+<p>
+  El modelo calcula la probabilidad de compra.  
+  - Si la probabilidad es baja → <strong>No compra</strong>  
+  - Si es intermedia → <strong>Posible compra</strong>  
+  - Si es alta → <strong>Compra segura</strong>  
+</p>
+
+<div class="mt-5 text-center">
+  <a href="/index2" class="btn btn-success me-3">🏠 Ir a Inicio</a>
+  <a href="/LRpractico" class="btn btn-outline-success">📘 Ver Ejercicio</a>
+</div>
+
+{% endblock %}

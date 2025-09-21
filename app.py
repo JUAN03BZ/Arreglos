@@ -8,7 +8,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import io
 import base64
-
+import RegresionLogistica as Rl
 
 @app.route("/")
 def home():
@@ -77,11 +77,11 @@ def casos():
 
     ]
 @app.route("/RLconceptos")
-def conceptos():
+def RLconceptos():
     return render_template("RLconceptos.html")
 
 @app.route("/RLpractico", methods=["GET", "POST"])
-def practico():
+def RLpractico():
     result = None
     grafico_url = None
 
@@ -133,11 +133,41 @@ def practico():
         plt.savefig(buffer, format="png")
         buffer.seek(0)
         grafico_url = base64.b64encode(buffer.getvalue()).decode("utf-8")
-        plt.close()  # 👈 Cerrar figura para evitar fugas de memoria
+        plt.close()  
 
     return render_template("RLpractico.html", result=result, grafico_url=grafico_url)
 
+@app.route("/LRconceptos")
+def LRconceptos():
+    return render_template("LRconceptos.html", title="Conceptos")
+
+
+@app.route("/LRpractico", methods=["GET", "POST"])
+def LRpractico():
+    resultado, prob, grafico_url = None, None, None
+
+    if request.method == "POST":
+        tiempo = float(request.form["tiempo"])
+        clics = int(request.form["clics"])
+        fuente = request.form["fuente"]
+        ingresos = request.form["ingresos"]
+
+        prob, resultado = Rl.predecir_compra(tiempo, clics, fuente, ingresos)
+
+    matriz_url = Rl.obtener_matriz_confusion()
+
+    return render_template(
+        "LRpractico.html",
+        title="Ejercicio Práctico",
+        resultado=resultado,
+        prob=prob,
+        grafico_url=grafico_url,
+        matriz_url=matriz_url,
+
+        
+    )
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
 
+    app.run(debug=True)

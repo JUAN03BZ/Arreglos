@@ -13,30 +13,49 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-  
   <!-- Menú -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark-green">
     <div class="container">
       <!-- Logo en el menú -->
       <a class="navbar-brand" href="/">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Logo_Universidad_de_Cundinamarca.png"
-             alt="logo" style="height: 40px;">
+             alt="logo" style="height: 40px;" />
       </a>
+      
       <div>
         <ul class="navbar-nav ms-auto">
+<!-- Enlace Inicio -->
           <li class="nav-item"><a class="nav-link" href="/index2">Inicio</a></li>
+          <!-- Menú Regresión Lineal -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Regresión lineal</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/RLconceptos">Conceptos básicos</a></li>
-              <li><a class="dropdown-item" href="/practico">Ejercicio práctico</a></li>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownRegLineal" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Regresión Lineal
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownRegLineal">
+              <li><a class="dropdown-item" href="{{ url_for('RLconceptos') }}">Conceptos básicos</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('RLpractico') }}">Ejercicio práctico</a></li>
+
             </ul>
           </li>
+
+          <!-- Menú Regresión Logística --> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownRegLogistica" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Regresión Logistica
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownRegLogistica">
+              <li><a class="dropdown-item" href="{{ url_for('LRconceptos') }}">Conceptos básicos</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('LRpractico') }}">Ejercicio práctico</a></li>
+
+            </ul>
+          </li>
+
+          
+
         </ul>
       </div>
     </div>
   </nav>
-
 
   <!-- Contenido principal -->
   <main class="flex-grow-1">
