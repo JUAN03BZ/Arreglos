@@ -75,11 +75,11 @@ def casos():
 
 
     ]
-@app.route("/conceptos")
+@app.route("/RLconceptos")
 def conceptos():
     return render_template("RLconceptos.html")
 
-@app.route("/practico", methods=["GET", "POST"])
+@app.route("/RLpractico", methods=["GET", "POST"])
 def practico():
     result = None
     grafico_url = None
