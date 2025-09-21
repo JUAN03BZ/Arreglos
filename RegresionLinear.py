@@ -41,3 +41,4 @@ def predict_salary(experiencia, educacion):
         return locale.format_string("%d COP", int(result), grouping=True)
     except:
         return f"${result:,.0f} COP"
+    

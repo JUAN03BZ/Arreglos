@@ -19,6 +19,7 @@ def home():
 def index():
     return render_template('index2.html')
 
+
 @app.route('/casos')
 def casos():
     CASES = [
